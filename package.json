@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "install": "^0.13.0",
+    "jsdom": "^22.1.0",
     "node-fetch": "^2.7.0"
   }
 }
