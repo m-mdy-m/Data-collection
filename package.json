@@ -12,6 +12,7 @@
   "dependencies": {
     "install": "^0.13.0",
     "jsdom": "^22.1.0",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "twilio": "^4.19.0"
   }
 }
