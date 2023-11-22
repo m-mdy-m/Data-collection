@@ -20,13 +20,6 @@ function getPrice(page) {
 
   return priceNumber;
 }
-function checkPrice(price, value) {
-  if (price > value) {
-    console.log(`the price is over $${value}`);
-  } else {
-    console.log(`the price is Not over $${value}`);
-  }
-}
 
 const cryptoObj = {
   bitcoin: 40400,
@@ -38,6 +31,5 @@ for (const cryptoName in cryptoObj) {
   fetchHTML(URL).then((page) => {
     const price = getPrice(page);
     console.log(`the current price of ${cryptoName} is $${price}`);
-    checkPrice(price, cryptoObj[cryptoName]);
   });
 }
