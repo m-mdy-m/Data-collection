@@ -11,9 +11,24 @@ async function fetchHTML(url) {
   }
 }
 
-function getPrice() {
-  let getPrice = document.querySelector(".coinPrice");
+function getPrice(page) {
+  let getPrice = page.querySelector(".coinPrice");
   let price = getPrice.innerHTML;
   return price;
 }
-getPrice();
+function checkPrice(price) {
+  if (price > 40000) {
+    console.log("the price is over $40,000");
+  } else {
+    console.log("the price is Not over $40,000");
+  }
+}
+
+const cryptoNameArray = ["bitcoin", "ethereum", "tether"];
+
+let templateURL = `https://arzdigital.com/coins/${cryptoNameArray}/`;
+fetchHTML("https://arzdigital.com/coins/bitcoin/").then((page) => {
+  const price = getPrice(page);
+  console.log(`the current price is ${price}`);
+  checkPrice(price);
+});
