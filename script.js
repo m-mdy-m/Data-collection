@@ -4,17 +4,22 @@ async function fetchHTML(url) {
 
     const txt = await response.text();
 
-    const page = new DOMParser().parseFromString(txt, "text/html");
-    return page;
+    // const page = new DOMParser().parseFromString(txt, "text/html");
+    const page = new jsdom.JSDOM(txt)
+    // return page;
   } catch (e) {
     return false;
   }
 }
+const fetch = require('node-fetch')
+const jsdom = require('jsdom')
+
 
 function getPrice(page) {
   let getPrice = page.querySelector(".coinPrice");
   let price = getPrice.innerHTML;
-  const priceNumber = Number(price.replace(/[^0-9.-]+/g,""));
+  const priceNumber = Number(price.replace(/[^0-9.-]+/g,""))
+  
   return priceNumber;
 }
 function checkPrice(price, value) {
