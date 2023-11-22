@@ -24,11 +24,16 @@ function checkPrice(price) {
   }
 }
 
-const cryptoNameArray = ["bitcoin", "ethereum", "tether"];
-
-let templateURL = `https://arzdigital.com/coins/${cryptoNameArray}/`;
-fetchHTML("https://arzdigital.com/coins/bitcoin/").then((page) => {
-  const price = getPrice(page);
-  console.log(`the current price is ${price}`);
-  checkPrice(price);
-});
+const cryptoObj = {
+  bitcoin: 40400,
+  ethereum: 20,
+  tether: 2,
+};
+for (const cryptoName in cryptoObj) {
+  let URL = `https://arzdigital.com/coins/${cryptoName}`;
+  fetchHTML(URL).then((page) => {
+    const price = getPrice(page);
+    console.log(`the current price is ${price}`);
+    checkPrice(price);
+  });
+}
