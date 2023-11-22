@@ -1,7 +1,5 @@
-const fetch = require("node-fetch");
 const jsdom = require("jsdom");
-const twilio = require("twilio");
-const api = new twilio('AC5f14e05e71aa7c8e6adde243ec64d203','53fbbac013a3710cf43112122dea0307')
+const fetch = require("node-fetch");
 async function fetchHTML(url) {
   try {
     const response = await fetch(url);
@@ -9,7 +7,6 @@ async function fetchHTML(url) {
     const txt = await response.text();
 
     const page = new jsdom.JSDOM(txt);
-    return page;
   } catch (e) {
     return false;
   }
@@ -28,10 +25,6 @@ function checkPrice(price, value) {
   } else {
     console.log(`the price is Not over $${value}`);
   }
-}
-
-function sendMessage(){
-    
 }
 
 const cryptoObj = {
