@@ -7,6 +7,7 @@ async function fetchHTML(url) {
     const txt = await response.text();
 
     const page = new jsdom.JSDOM(txt);
+    return page
   } catch (e) {
     return false;
   }
